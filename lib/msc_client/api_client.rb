@@ -279,7 +279,9 @@ module MSCClient
       else
         # models (e.g. Pet) or oneOf
         klass = MSCClient.const_get(return_type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
+        [:openapi_one_of, :openapi_any_of].map { |openapi_kind|
+          klass.respond_to?(openapi_kind)
+        }.any? ? klass.build(data) : klass.build_from_hash(data)
       end
     end
 
