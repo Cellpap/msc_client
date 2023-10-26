@@ -128,3 +128,13 @@ Authentication schemes defined for the API:
 - **API key parameter name**: subscription-key
 - **Location**: URL query string
 
+### PEM generation and Thumbnail extraction
+
+```bash
+openssl pkcs12 -in CUST-Company.pfx -out private-key.pem -nocerts -nodes
+openssl pkcs12 -in CUST-Company.pfx -out certificate.pem -clcerts -nokeys
+cat private-key.pem certificate.pem > CUST-Company.pem
+openssl x509 -in CUST-Company.pem -noout -fingerprint
+```
+
+
