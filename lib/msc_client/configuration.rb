@@ -150,7 +150,7 @@ module MSCClient
 
     def initialize
       @scheme = 'https'
-      @host = 'uat.api.tech.msc.com'
+      @host = 'api.tech.msc.com'
       @base_path = '/msc/trackandtrace/v2.2'
       @server_index = nil
       @server_operation_index = {}
